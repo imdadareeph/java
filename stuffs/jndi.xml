@@ -11,7 +11,7 @@
 				maxActive="15" maxIdle="5" maxWait="5000"
 				removeAbandoned="true" logAbandoned="true"
 				driverClassName="com.mysql.jdbc.Driver"
-				jdbcInterceptors="com.erp.jdbc.pool.ConnectionReconnect"
+				jdbcInterceptors="com.project.jdbc.pool.ConnectionReconnect"
 				username="root" password="root" defaultAutoCommit="false"
 				url="jdbc:mysql://192.168.0.420:3306/dbnamedev"/>
 	
@@ -42,14 +42,14 @@
 	<Resource name="mail/Session" auth="Container"
 		type="javax.mail.Session"
 		mail.debug="true"
-		mail.user="imdad.areeph@gmail.com"
-		mail.from="imdad.areeph@gmail.com"
+		mail.user="mixyezspitlick@gmail.com"
+		mail.from="mixyezspitlick@gmail.com"
 		mail.transport.protocol="smtp"
 		mail.smtp.host= "74.125.68.139"
 		mail.smtp.auth= "false"
 		mail.smtp.port= "25"
 		mail.smtp.starttls.enable="false"
-		description="Global E-Mail Resource"    />
+		description="E-Mail Resource"    />
   </GlobalNamingResources>
 
 
@@ -72,12 +72,11 @@
 			factory="org.apache.naming.factory.BeanFactory"
 			uploadPath="C:/APPNAME/upload"
 			screenshotPath="C:/APPNAME/Images"
-			docPath="C:/APPNAME/docPath"
+			wordPath="C:/APPNAME/docPath"
 			pdfPath="C:/APPNAME/pdfPath"
 			applicationPath="D:/Softwares/APPNAME/APPNAME/tomcat/webapps/APPNAME"
 			applicationUrl="http://localhost:8080/APPNAME"
 			isMailServerConfigured="n"
-			analyticsPath=""
 			appSenderMailId=""
 			appSupportMailId=""/>
 
