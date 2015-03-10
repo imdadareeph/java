@@ -1,0 +1,86 @@
+
+<GlobalNamingResources>
+   <Resource name="UserDatabase" auth="Container"
+				type="org.apache.catalina.UserDatabase"
+				description="User database that can be updated and saved"
+				factory="org.apache.catalina.users.MemoryUserDatabaseFactory"
+				pathname="conf/tomcat-users.xml" />
+
+    <Resource name="jdbc/litedev" type="javax.sql.DataSource"
+    			factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
+				maxActive="15" maxIdle="5" maxWait="5000"
+				removeAbandoned="true" logAbandoned="true"
+				driverClassName="com.mysql.jdbc.Driver"
+				jdbcInterceptors="com.erp.jdbc.pool.ConnectionReconnect"
+				username="root" password="root" defaultAutoCommit="false"
+				url="jdbc:mysql://10.212.5.59:3306/litedev"/>
+	
+	<Resource name="jdbc/lite"
+				auth="Container"
+				type="javax.sql.DataSource"
+				username="root"
+				password="root"
+				driverClassName="com.mysql.jdbc.Driver"
+				url="jdbc:mysql://10.212.5.59:3306/lite?autoReconnect=true"
+				validationQuery="select 1"
+				maxActive="2"
+				maxIdle="1"/>	
+
+	<Resource name="jdbc/litelatest" type="javax.sql.DataSource"
+				maxActive="2" maxIdle="1" maxWait="5000"
+				removeAbandoned="true" logAbandoned="true"
+				driverClassName="com.mysql.jdbc.Driver"
+				username="root" password="root"
+				url="jdbc:mysql://10.212.5.59:3306/litelatest"/>
+			
+	<Resource name="jms/connectionfactory" auth="Container" type="org.apache.activemq.ActiveMQConnectionFactory"
+			description="JMS Connection Factory"
+	        maxInactivityDuration="-1" factory="org.apache.activemq.jndi.JNDIReferenceFactory"
+			brokerURL="vm://localhost?jms.useAsyncSend=true"
+			brokerName="LocalActiveMQBroker"/>
+
+	<Resource name="mail/Session" auth="Container"
+		type="javax.mail.Session"
+		mail.debug="true"
+		mail.user="imdad.areeph@igate.com"
+		mail.from="imdad.areeph@igate.com"
+		mail.transport.protocol="smtp"
+		mail.smtp.host= "172.25.250.1"
+		mail.smtp.auth= "false"
+		mail.smtp.port= "25"
+		mail.smtp.starttls.enable="false"
+		description="Global E-Mail Resource"    />
+  </GlobalNamingResources>
+
+
+  <Host name="localhost"  appBase="webapps" unpackWARs="true" autoDeploy="true">
+
+	<Context reloadable="false" path="/LITE" docBase="LITE">
+	
+		<ResourceLink name="jdbc/litedev" type="javax.sql.DataSource" global="jdbc/litedev"/>
+		
+		<ResourceLink name="jdbc/lite" type="javax.sql.DataSource" global="jdbc/lite"/>
+		
+		<ResourceLink name="jdbc/litelatest" type="javax.sql.DataSource" global="jdbc/litelatest"/>
+
+		<ResourceLink name="jms/connectionfactory" type="org.apache.activemq.ActiveMQConnectionFactory" global="jms/connectionfactory"/>
+
+		<ResourceLink name="mail/Session" global="mail/Session" type="javax.mail.Session" />
+
+		<Resource name="LITE/startupProperties"
+			type="com.erp.common.util.StartupProperties"
+			factory="org.apache.naming.factory.BeanFactory"
+			uploadPath="C:/lite/upload"
+			screenshotPath="C:/lite/Images"
+			docPath="C:/lite/docPath"
+			pdfPath="C:/lite/pdfPath"
+			applicationPath="D:/Softwares/LITE/LITE/tomcat/webapps/lite"
+			applicationUrl="http://localhost:8080/lite"
+			isMailServerConfigured="n"
+			analyticsPath=""
+			appSenderMailId=""
+			appSupportMailId=""/>
+
+	</Context>
+   </Host>	
+
