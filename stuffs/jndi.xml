@@ -13,7 +13,7 @@
 				driverClassName="com.mysql.jdbc.Driver"
 				jdbcInterceptors="com.erp.jdbc.pool.ConnectionReconnect"
 				username="root" password="root" defaultAutoCommit="false"
-				url="jdbc:mysql://10.212.5.59:3306/dbnamedev"/>
+				url="jdbc:mysql://192.168.0.420:3306/dbnamedev"/>
 	
 	<Resource name="jdbc/dbname"
 				auth="Container"
@@ -21,7 +21,7 @@
 				username="root"
 				password="root"
 				driverClassName="com.mysql.jdbc.Driver"
-				url="jdbc:mysql://10.212.5.59:3306/dbname?autoReconnect=true"
+				url="jdbc:mysql://192.168.0.420:3306/dbname?autoReconnect=true"
 				validationQuery="select 1"
 				maxActive="2"
 				maxIdle="1"/>	
@@ -31,7 +31,7 @@
 				removeAbandoned="true" logAbandoned="true"
 				driverClassName="com.mysql.jdbc.Driver"
 				username="root" password="root"
-				url="jdbc:mysql://10.212.5.59:3306/dbnamelatest"/>
+				url="jdbc:mysql://192.168.0.420:3306/dbnamelatest"/>
 			
 	<Resource name="jms/connectionfactory" auth="Container" type="org.apache.activemq.ActiveMQConnectionFactory"
 			description="JMS Connection Factory"
@@ -42,10 +42,10 @@
 	<Resource name="mail/Session" auth="Container"
 		type="javax.mail.Session"
 		mail.debug="true"
-		mail.user="imdad.areeph@igate.com"
-		mail.from="imdad.areeph@igate.com"
+		mail.user="imdad.areeph@gmail.com"
+		mail.from="imdad.areeph@gmail.com"
 		mail.transport.protocol="smtp"
-		mail.smtp.host= "172.25.250.1"
+		mail.smtp.host= "74.125.68.139"
 		mail.smtp.auth= "false"
 		mail.smtp.port= "25"
 		mail.smtp.starttls.enable="false"
@@ -68,7 +68,7 @@
 		<ResourceLink name="mail/Session" global="mail/Session" type="javax.mail.Session" />
 
 		<Resource name="APPNAME/startupProperties"
-			type="com.erp.common.util.StartupProperties"
+			type="com.project.common.util.StartupProperties"
 			factory="org.apache.naming.factory.BeanFactory"
 			uploadPath="C:/APPNAME/upload"
 			screenshotPath="C:/APPNAME/Images"
